@@ -1,0 +1,6 @@
+org/apache/beam/examples/complete/game/injector/Injector$1.class
+org/apache/beam/examples/common/ExampleOptions.class
+org/apache/beam/examples/common/ExamplePubsubTopicAndSubscriptionOptions.class
+org/apache/beam/examples/DebuggingWordCount$WordCountOptions.class
+org/apache/beam/examples/complete/game/.StatefulTeamScore$Options.class.icloud
+org/apache/beam/examples/complete/game/StatefulTeamScore$Options.class
