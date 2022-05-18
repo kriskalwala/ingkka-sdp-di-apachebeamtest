@@ -1,80 +1,66 @@
 package com.ingka.sbp.di.poslogparse.pipeline;
 
-
-import java.io.IOException;
-
-import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
+import com.ingka.sbp.di.poslogparse.transform.DeserializedPayload;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.beam.sdk.Pipeline;
-import org.apache.beam.sdk.io.TextIO;
 import org.apache.beam.sdk.io.gcp.pubsub.PubsubIO;
 import org.apache.beam.sdk.io.gcp.pubsub.PubsubMessage;
-import org.apache.beam.sdk.options.Default;
-import org.apache.beam.sdk.options.Description;
-import org.apache.beam.sdk.options.PipelineOptions;
-import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.apache.beam.sdk.options.StreamingOptions;
-import org.apache.beam.sdk.options.Validation.Required;
 import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.DoFn.Element;
 import org.apache.beam.sdk.transforms.DoFn.OutputReceiver;
+import org.apache.beam.sdk.transforms.DoFn.ProcessContext;
 import org.apache.beam.sdk.transforms.DoFn.ProcessElement;
 import org.apache.beam.sdk.transforms.ParDo;
-import org.apache.beam.sdk.transforms.windowing.FixedWindows;
-import org.apache.beam.sdk.transforms.windowing.Window;
 import org.apache.beam.sdk.values.PCollection;
-import org.joda.time.Duration;
-
-//import com.google.pubsub.v1.PubsubMessage;  // to moze byc nie OK!!! daltego ponizej
-//import org.apache.beam.sdk.io.gcp.pubsub.PubsubMessage;
-import com.ingka.sbp.di.poslogparse.transform.DeserializedPayload;
-
-import jdk.internal.org.jline.utils.Log;
 
 
-public class DataPipelineBuilder {
-	
-	//GOOD DataflowPipelineOptions dataflowPipeLineOptions = PipelineOptionsFactory.as(DataflowPipelineOptions.class);
-	
-	
-	public Pipeline createDataPipeline(DataPipelineOptions options) {
-	//public Pipeline createDataPipeline(DataflowPipelineOptions options) {
-		
-		final Pipeline pipeline = Pipeline.create(options);    //create(options);
-		
-		String runner = pipeline.getOptions().getRunner().toString();
-		
-		Log.info("Pipeline runner {}", runner);
-		PCollection<PubsubMessage> pubsubMessagePCollection = pipeline.apply(PubsubIO.readMessages()
-			//ver   	.fromSubscription(options.getInputSubscription()));  //fromSubscription(options.getInputSubscription()));
-		        .fromSubscription("cxcxcxcxc"));
-				
-		
-		
-		//PCollection<String> deserializedPayloadCollection = pubsubMessagePCollection.apply("Deser...", ParDo.of(new DeserializedPayload()));
-		
-		
-		PCollection<String> deserializedPayloadCollection = pubsubMessagePCollection.apply("Deser...", ParDo.of(new DoFn<PubsubMessage, String>() {
-            @ProcessElement
-            public void processElement(@Element PubsubMessage pubsubMessage, OutputReceiver<String> receiver) {
-                String element = new String(pubsubMessage.getPayload());
-                receiver.output(element);
-            }}));    
-		
-		
-		
-	/*	new DoFn<PubsubMessage, String>() {
-            @ProcessElement
-            public void processElement(@Element PubsubMessage pubsubMessage, OutputReceiver<String> receiver) {
-                String element = new String(pubsubMessage.getPayload());
-                receiver.output(element);
-            } */
-		    	  
-		Log.info("End running the Pipeline!");    	  
-		
-		return pipeline;
-		
-		
-	}
+import java.io.Serializable;
+import java.util.logging.Logger;
 
+@Slf4j
+public  class DataPipelineBuilder implements Serializable {
 
+    private static final long serialVersionUID = -4653742684995510178L;
+    
+    static Logger log = Logger.getLogger(DataPipelineBuilder.class.getName());
+
+    public Pipeline createDataPipeline(DataPipelineOptions options) {
+        // create the Pipeline with the specified options
+        final Pipeline pipeline = Pipeline.create(options);
+
+        String runner = pipeline.getOptions().getRunner().toString();
+        log.info("Pipeline runner: {}" + runner);
+        PCollection<PubsubMessage> pubsubMessagePCollection = pipeline.apply(PubsubIO.readMessages()
+                .fromSubscription(options.getInputSubscription()));
+       // PCollection<String> deserializedPayloadCollection = pubsubMessagePCollection.apply("Deserialize Payload",
+       //         ParDo.of(new DeserializedPayload()));
+        
+      PCollection<Integer> deserializedPayloadCollection = pubsubMessagePCollection.apply("Deserialize Payload",
+                 ParDo.of(new ComputeWordLengthFn()));
+        log.info("End running the pipeline!");
+
+        return pipeline;
+    }
+    
+    
+    
+    static class ComputeWordLengthFn extends DoFn<PubsubMessage, Integer> {
+    	  @ProcessElement
+    	  public void processElement(@Element String word, OutputReceiver<Integer> out) {
+    	    // Use OutputReceiver.output to emit the output element.
+    	    out.output(word.length());
+    	  }
+    	}
+    
+    
+    @ProcessElement
+    public void processElement(ProcessContext c) {
+
+        //System.out.println("Payload::::"+c.element().getPayload().toString());
+        //System.out.println("Bucket Id::::"+ c.element().getAttribute("bucketId"));
+        //System.out.println("Bucket Id::::"+ c.element().getAttribute("objectId"));
+        //String bucketName = c.element().getAttribute("bucketId");
+        //String fileName = c.element().getAttribute("objectId");
+        //c.output("Bucket Name::" + bucketName +"  File Name::::" + fileName);
+    }
 }
