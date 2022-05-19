@@ -29,7 +29,7 @@ public class DataPipeline {
         try (InputStream inputStream = resourceUtils.resourceToInputStream("poslog_PT_367_20150613_1.xml")) {
             bytes = resourceUtils.getByteArrayFromInputStream(inputStream);
         }
-        XMLParser staxParser = new StaxParser();
+        StaxParser staxParser = new StaxParser();
         staxParser.parsePubsubMessage(bytes);
     }
 }

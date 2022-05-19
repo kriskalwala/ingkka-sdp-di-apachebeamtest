@@ -37,6 +37,8 @@ public  class DataPipelineBuilder implements Serializable {
         
       PCollection<Integer> deserializedPayloadCollection = pubsubMessagePCollection.apply("Deserialize Payload",
                  ParDo.of(new ComputeWordLengthFn()));
+      
+      
         log.info("End running the pipeline!");
 
         return pipeline;
