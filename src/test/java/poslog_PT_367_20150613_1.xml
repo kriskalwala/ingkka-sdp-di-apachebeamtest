@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POSLog xmlns="http://www.nrf-arts.org/IXRetail/namespace/" xmlns:IKEA="ikea.com/pip/poslog/1.0/" xmlns:WN="http://www.wincor-nixdorf.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Transaction>
+      <RetailStoreID>367</RetailStoreID>
+      <BusinessUnit>
+         <UnitID TypeCode="RetailStore">367</UnitID>
+      </BusinessUnit>
+      <OrganizationHierarchy Level="Corporation" ID="PT">IKEASetCountryCode2PT</OrganizationHierarchy>
+      <WorkstationID>10</WorkstationID>
+      <TillID>REGULAR</TillID>
+      <SequenceNumber>189</SequenceNumber>
+      <BusinessDayDate>2015-06-13</BusinessDayDate>
+      <BeginDateTime>2015-06-13T08:52:38</BeginDateTime>
+      <EndDateTime>2015-06-13T08:52:39</EndDateTime>
+      <CurrencyCode>EUR</CurrencyCode>
+      <RetailTransaction Version="2.2">
+         <IKEA:TransactionSpecifics>
+            <IKEA:IsHomeDelivery>false</IKEA:IsHomeDelivery>
+         </IKEA:TransactionSpecifics>
+      </RetailTransaction>
+      <WN:PosVersion>4.5.2.12</WN:PosVersion>
+      <WN:SessionID>unknown</WN:SessionID>
+      <WN:WorkstationGroupID>REGULAR</WN:WorkstationGroupID>
+      <WN:Version>4.0.0.0</WN:Version>
+      <WN:CustomerID>IKEA</WN:CustomerID>
+      <WN:CustomerVersion>1.0</WN:CustomerVersion>
+      <IKEA:ReceiptImageSpecifics>
+         <IKEA:ReceiptPrintBuffer ImageType="string">IE</IKEA:ReceiptPrintBuffer>
+         <IKEA:CustomerSignatureList />
+      </IKEA:ReceiptImageSpecifics>
+   </Transaction>
+   <Transaction>
+      <RetailStoreID>367</RetailStoreID>
+      <BusinessUnit>
+         <UnitID TypeCode="RetailStore">367</UnitID>
+      </BusinessUnit>
+      <OrganizationHierarchy Level="Corporation" ID="PT">IKEASetCountryCode2PT</OrganizationHierarchy>
+      <WorkstationID>10</WorkstationID>
+      <TillID>REGULAR</TillID>
+      <SequenceNumber>26</SequenceNumber>
+      <BusinessDayDate>2015-06-13</BusinessDayDate>
+      <BeginDateTime>2015-06-13T12:33:51</BeginDateTime>
+      <EndDateTime>2015-06-13T12:34:41</EndDateTime>
+      <OperatorID OperatorName="Ana Filipa Silva">19101573</OperatorID>
+      <CurrencyCode>EUR</CurrencyCode>
+      <RetailTransaction Version="2.2">
+         <LineItem EntryMethod="Scanned">
+            <SequenceNumber>5</SequenceNumber>
+            <Sale ItemType="Stock">
+               <ItemID>80271714</ItemID>
+               <POSIdentity POSIDType="EAN">
+                  <POSItemID>80271714</POSItemID>
+               </POSIdentity>
+               <MerchandiseHierarchy Level="MerchandiseHierarchyLevel">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="MerchandiseStructure">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="POSDepartment">1121</MerchandiseHierarchy>
+               <Description>GRUSBLAD edred</Description>
+               <UnitListPrice>27.99</UnitListPrice>
+               <RegularSalesUnitPrice>27.99</RegularSalesUnitPrice>
+               <ActualSalesUnitPrice>27.99</ActualSalesUnitPrice>
+               <ExtendedAmount>27.99</ExtendedAmount>
+               <Quantity Units="1" UnitOfMeasureCode="EA">1</Quantity>
+               <Tax TaxType="VAT">
+                  <SequenceNumber>1</SequenceNumber>
+                  <TaxAuthority>Portugal</TaxAuthority>
+                  <TaxableAmount TaxIncludedInTaxableAmountFlag="true">27.99</TaxableAmount>
+                  <TaxablePercentage>100</TaxablePercentage>
+                  <Amount>5.2339</Amount>
+                  <Percent>23</Percent>
+                  <TaxRuleID>0</TaxRuleID>
+                  <TaxGroupID>0</TaxGroupID>
+                  <IKEA:TaxSpecifics>
+                     <IKEA:TaxCalcMethod>PERCENTAGE</IKEA:TaxCalcMethod>
+                     <IKEA:TaxLocation>Portugal</IKEA:TaxLocation>
+                     <IKEA:PrintedAmount>5.23</IKEA:PrintedAmount>
+                  </IKEA:TaxSpecifics>
+               </Tax>
+               <WN:AdditionalDesc>GRUSBLAD edred fresc 240x220</WN:AdditionalDesc>
+               <WN:BarcodeTemplate>80271714223509</WN:BarcodeTemplate>
+               <IKEA:ItemSpecifics BulkyItem="false" FamilyItem="false" BargainItem="false">
+                  <IKEA:SupplierID>22350</IKEA:SupplierID>
+               </IKEA:ItemSpecifics>
+            </Sale>
+         </LineItem>
+         <LineItem EntryMethod="Scanned">
+            <SequenceNumber>7</SequenceNumber>
+            <Sale ItemType="Stock">
+               <ItemID>80240505</ItemID>
+               <POSIdentity POSIDType="EAN">
+                  <POSItemID>80240505</POSItemID>
+               </POSIdentity>
+               <MerchandiseHierarchy Level="MerchandiseHierarchyLevel">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="MerchandiseStructure">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="POSDepartment">1051</MerchandiseHierarchy>
+               <Description>ALKALISK pilh</Description>
+               <UnitListPrice>2.5</UnitListPrice>
+               <RegularSalesUnitPrice>2.5</RegularSalesUnitPrice>
+               <ActualSalesUnitPrice>2.5</ActualSalesUnitPrice>
+               <ExtendedAmount>2.5</ExtendedAmount>
+               <Quantity Units="1" UnitOfMeasureCode="EA">1</Quantity>
+               <Tax TaxType="VAT">
+                  <SequenceNumber>1</SequenceNumber>
+                  <TaxAuthority>Portugal</TaxAuthority>
+                  <TaxableAmount TaxIncludedInTaxableAmountFlag="true">2.5</TaxableAmount>
+                  <TaxablePercentage>100</TaxablePercentage>
+                  <Amount>0.4675</Amount>
+                  <Percent>23</Percent>
+                  <TaxRuleID>0</TaxRuleID>
+                  <TaxGroupID>0</TaxGroupID>
+                  <IKEA:TaxSpecifics>
+                     <IKEA:TaxCalcMethod>PERCENTAGE</IKEA:TaxCalcMethod>
+                     <IKEA:TaxLocation>Portugal</IKEA:TaxLocation>
+                     <IKEA:PrintedAmount>0.47</IKEA:PrintedAmount>
+                  </IKEA:TaxSpecifics>
+               </Tax>
+               <WN:AdditionalDesc>ALKALISK pilh alcal LR03 AAA 1.5V10uds</WN:AdditionalDesc>
+               <WN:BarcodeTemplate>80240505188629</WN:BarcodeTemplate>
+               <IKEA:ItemSpecifics BulkyItem="false" FamilyItem="false" BargainItem="false">
+                  <IKEA:SupplierID>18862</IKEA:SupplierID>
+               </IKEA:ItemSpecifics>
+            </Sale>
+         </LineItem>
+         <LineItem EntryMethod="Keyed">
+            <SequenceNumber>9</SequenceNumber>
+            <Sale ItemType="Stock">
+               <ItemID>17228340</ItemID>
+               <POSIdentity POSIDType="EAN">
+                  <POSItemID>17228340</POSItemID>
+               </POSIdentity>
+               <MerchandiseHierarchy Level="MerchandiseHierarchyLevel">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="MerchandiseStructure">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="POSDepartment">1921</MerchandiseHierarchy>
+               <Description>FRAKTA saco,</Description>
+               <UnitListPrice>0.6</UnitListPrice>
+               <RegularSalesUnitPrice>0.6</RegularSalesUnitPrice>
+               <ActualSalesUnitPrice>0.5</ActualSalesUnitPrice>
+               <ExtendedAmount>1</ExtendedAmount>
+               <Quantity Units="2" UnitOfMeasureCode="EA">2</Quantity>
+               <RetailPriceModifier MethodCode="WN:CustomerPrice">
+                  <SequenceNumber>6</SequenceNumber>
+                  <Amount Action="Replace">0.5</Amount>
+                  <PreviousPrice>0.6</PreviousPrice>
+                  <ReasonCode>Customer_Price</ReasonCode>
+               </RetailPriceModifier>
+               <Tax TaxType="VAT">
+                  <SequenceNumber>1</SequenceNumber>
+                  <TaxAuthority>Portugal</TaxAuthority>
+                  <TaxableAmount TaxIncludedInTaxableAmountFlag="true">1</TaxableAmount>
+                  <TaxablePercentage>100</TaxablePercentage>
+                  <Amount>0.187</Amount>
+                  <Percent>23</Percent>
+                  <TaxRuleID>0</TaxRuleID>
+                  <TaxGroupID>0</TaxGroupID>
+                  <IKEA:TaxSpecifics>
+                     <IKEA:TaxCalcMethod>PERCENTAGE</IKEA:TaxCalcMethod>
+                     <IKEA:TaxLocation>Portugal</IKEA:TaxLocation>
+                     <IKEA:PrintedAmount>0.19</IKEA:PrintedAmount>
+                  </IKEA:TaxSpecifics>
+               </Tax>
+               <WN:AdditionalDesc>FRAKTA saco, grd 71 l azul</WN:AdditionalDesc>
+               <IKEA:ItemSpecifics BulkyItem="false" FamilyItem="true" BargainItem="false" />
+            </Sale>
+         </LineItem>
+         <LineItem EntryMethod="Scanned">
+            <SequenceNumber>11</SequenceNumber>
+            <Sale ItemType="Stock">
+               <ItemID>50097995</ItemID>
+               <POSIdentity POSIDType="EAN">
+                  <POSItemID>50097995</POSItemID>
+               </POSIdentity>
+               <MerchandiseHierarchy Level="MerchandiseHierarchyLevel">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="MerchandiseStructure">1</MerchandiseHierarchy>
+               <MerchandiseHierarchy Level="POSDepartment">1632</MerchandiseHierarchy>
+               <Description>GLIMMA vel peq</Description>
+               <UnitListPrice>3.5</UnitListPrice>
+               <RegularSalesUnitPrice>3.5</RegularSalesUnitPrice>
+               <ActualSalesUnitPrice>3.5</ActualSalesUnitPrice>
+               <ExtendedAmount>3.5</ExtendedAmount>
+               <Quantity Units="1" UnitOfMeasureCode="EA">1</Quantity>
+               <Tax TaxType="VAT">
+                  <SequenceNumber>1</SequenceNumber>
+                  <TaxAuthority>Portugal</TaxAuthority>
+                  <TaxableAmount TaxIncludedInTaxableAmountFlag="true">3.5</TaxableAmount>
+                  <TaxablePercentage>100</TaxablePercentage>
+                  <Amount>0.6545</Amount>
+                  <Percent>23</Percent>
+                  <TaxRuleID>0</TaxRuleID>
+                  <TaxGroupID>0</TaxGroupID>
+                  <IKEA:TaxSpecifics>
+                     <IKEA:TaxCalcMethod>PERCENTAGE</IKEA:TaxCalcMethod>
+                     <IKEA:TaxLocation>Portugal</IKEA:TaxLocation>
+                     <IKEA:PrintedAmount>0.65</IKEA:PrintedAmount>
+                  </IKEA:TaxSpecifics>
+               </Tax>
+               <WN:AdditionalDesc>GLIMMA vel peq s/prf 100uds</WN:AdditionalDesc>
+               <WN:BarcodeTemplate>50097995216559</WN:BarcodeTemplate>
+               <IKEA:ItemSpecifics BulkyItem="false" FamilyItem="false" BargainItem="false">
+                  <IKEA:SupplierID>21655</IKEA:SupplierID>
+               </IKEA:ItemSpecifics>
+            </Sale>
+         </LineItem>
+         <LineItem>
+            <SequenceNumber>14</SequenceNumber>
+            <Discount>
+               <Amount>0.2</Amount>
+               <PriceDerivationRule Reference="Customer">
+                  <PriceDerivationRuleID />
+               </PriceDerivationRule>
+               <IKEA:DiscountSpecifics>
+                  <IKEA:DiscountableAmount>1.2</IKEA:DiscountableAmount>
+                  <IKEA:DiscountReference>6275980230292499398</IKEA:DiscountReference>
+               </IKEA:DiscountSpecifics>
+            </Discount>
+         </LineItem>
+         <LineItem>
+            <SequenceNumber>15</SequenceNumber>
+            <BeginDateTime>2015-06-13T12:34:21</BeginDateTime>
+            <Tender TenderType="CreditDebit" TypeCode="Sale" WN:Media="400" WN:MediaMember="400">
+               <Amount>34.99</Amount>
+               <CreditDebit CardType="Debit" WN:MMType="VI CNEEAP">
+                  <IssuerIdentificationNumber>422003</IssuerIdentificationNumber>
+                  <PrimaryAccountNumber>****************</PrimaryAccountNumber>
+                  <WN:ExpirationDate>2012-12</WN:ExpirationDate>
+               </CreditDebit>
+               <WN:Quantity>1</WN:Quantity>
+               <IKEA:TenderSpecifics ExternalTenderType="EFTONLINE" />
+            </Tender>
+         </LineItem>
+         <LineItem>
+            <SequenceNumber>19</SequenceNumber>
+            <Tax TaxType="VAT" TypeCode="Sale">
+               <SequenceNumber>1</SequenceNumber>
+               <TaxAuthority>Portugal</TaxAuthority>
+               <TaxableAmount TaxIncludedInTaxableAmountFlag="false">28.4472</TaxableAmount>
+               <TaxablePercentage>100</TaxablePercentage>
+               <Amount>6.5428</Amount>
+               <Percent>23</Percent>
+               <TaxRuleID>0</TaxRuleID>
+               <TaxGroupID>0</TaxGroupID>
+               <IKEA:TaxSpecifics>
+                  <IKEA:TaxCalcMethod>PERCENTAGE</IKEA:TaxCalcMethod>
+                  <IKEA:TaxLocation>Portugal</IKEA:TaxLocation>
+                  <IKEA:PrintedAmount>6.54</IKEA:PrintedAmount>
+               </IKEA:TaxSpecifics>
+            </Tax>
+         </LineItem>
+         <Total TotalType="TransactionNetAmount" WN:DateTime="2015-06-13T12:34:17">28.45</Total>
+         <Total TotalType="TransactionTaxAmount" WN:DateTime="2015-06-13T12:34:17">6.54</Total>
+         <Total TotalType="TransactionGrandAmount" WN:DateTime="2015-06-13T12:34:17">34.99</Total>
+         <LoyaltyAccount>
+            <CustomerID>ikeaFamily</CustomerID>
+            <LoyaltyProgram>
+               <LoyaltyProgramID>FAMILY CARD</LoyaltyProgramID>
+               <LoyaltyAccountID>6275980230292499398</LoyaltyAccountID>
+            </LoyaltyProgram>
+         </LoyaltyAccount>
+         <IKEA:TransactionSpecifics>
+            <IKEA:IsHomeDelivery>false</IKEA:IsHomeDelivery>
+         </IKEA:TransactionSpecifics>
+      </RetailTransaction>
+      <WN:CustomerSurvey>
+         <WN:SequenceNumber>4</WN:SequenceNumber>
+         <WN:CustomerSurveyID>zip_code</WN:CustomerSurveyID>
+         <WN:Name>ZIP Code</WN:Name>
+         <WN:Query>
+            <WN:SequenceNumber>1</WN:SequenceNumber>
+            <WN:Header>ZIP Code</WN:Header>
+            <WN:StringValue>2720468</WN:StringValue>
+         </WN:Query>
+      </WN:CustomerSurvey>
+      <WN:PosVersion>4.5.2.12</WN:PosVersion>
+      <WN:SessionID>367:10:2:19101573:20150613</WN:SessionID>
+      <WN:WorkstationGroupID>REGULAR</WN:WorkstationGroupID>
+      <WN:Version>4.0.0.0</WN:Version>
+      <WN:CustomerID>IKEA</WN:CustomerID>
+      <WN:CustomerVersion>1.0</WN:CustomerVersion>
+      <IKEA:ReceiptImageSpecifics>
+         <IKEA:ReceiptPrintBuffer ImageType="string">IE9</IKEA:ReceiptPrintBuffer>
+         <IKEA:CustomerSignatureList />
+      </IKEA:ReceiptImageSpecifics>
+   </Transaction>
+</POSLog>

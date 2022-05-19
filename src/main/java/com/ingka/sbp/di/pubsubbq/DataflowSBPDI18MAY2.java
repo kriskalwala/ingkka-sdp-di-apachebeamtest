@@ -38,7 +38,7 @@ public class DataflowSBPDI18MAY2 {
 		            .as(valGCSoptions.class);
 		
 		DataflowPipelineOptions dataflowPipeLineOptions = PipelineOptionsFactory.as(DataflowPipelineOptions.class);
-		dataflowPipeLineOptions.setJobName("StreamingIngestion18MAYAB2");
+		dataflowPipeLineOptions.setJobName("StreamingIngestion19MAYXX");
 		dataflowPipeLineOptions.setProject("cpskk2021-03-1615568275864");
 		
 		dataflowPipeLineOptions.setRegion("us-central1");
@@ -58,14 +58,14 @@ public class DataflowSBPDI18MAY2 {
 		
 		
 		PCollection<TableRow> bqrow =  pubsubmessage.apply( ParDo.of(new ConvertStringBqA()) );
-		bqrow.apply(BigQueryIO.writeTableRows().to("cpskk2021-03-1615568275864:smalltech.pubsubStream7A").withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
+		bqrow.apply(BigQueryIO.writeTableRows().to("cpskk2021-03-1615568275864:smalltech.pubsubStream19A").withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
 				.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER));
 				//.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER).withCustomGcsTempLocation(options.getString()));    IT WORKED !!!
 	
 		
 		
 		PCollection<TableRow> bqrow2 =  pubsubmessage.apply( ParDo.of(new ConvertStringBqB()) );
-		bqrow.apply(BigQueryIO.writeTableRows().to("cpskk2021-03-1615568275864:smalltech.pubsubStream7B").withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
+		bqrow.apply(BigQueryIO.writeTableRows().to("cpskk2021-03-1615568275864:smalltech.pubsubStream19B").withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
 				.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER));
 		
 		
