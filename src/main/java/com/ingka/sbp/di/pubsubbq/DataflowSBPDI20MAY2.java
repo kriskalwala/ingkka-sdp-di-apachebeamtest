@@ -28,7 +28,7 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 
 import com.ingka.sbp.di.pubsubbq.ReadXmlStAXCursorParser;
 
-public class DataflowSBPDI20MAY {
+public class DataflowSBPDI20MAY2 {
 	
 	
 	public static void main(String[] args) {
