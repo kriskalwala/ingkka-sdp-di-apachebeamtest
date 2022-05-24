@@ -41,43 +41,43 @@ public class MyPiplineJSON {
 
         Pipeline pipeline = Pipeline.create(options);
 
-        PCollection<String> input = pipeline
-                .apply(PubsubIO.Read.subscription(
-                        "projects/my-data-analysis/subscriptions/myDataflowSub"));
-
-        input.apply(ParDo.of(new DoFn<String, Void>() {
-
-            //@Override
-            public void processElement(DoFn<String, Void>.ProcessContext c) throws Exception {
-                LOG.info("json" + c.element());
-            }
-
-        }));
+//        PCollection<String> input = pipeline
+//                .apply(PubsubIO.Read.fromSubscription(
+//                        "projects/my-data-analysis/subscriptions/myDataflowSub"));
+//
+//        input.apply(ParDo.of(new DoFn<String, Void>() {
+//
+//            //@Override
+//            public void processElement(DoFn<String, Void>.ProcessContext c) throws Exception {
+//                LOG.info("json" + c.element());
+//            }
+//
+//        }));
         String fileName = UUID.randomUUID().toString().replaceAll("-", "");
 
 
-        input.apply(ParDo.of(new DoFn<String, String>() {
-            //@Override
-            public void processElement(DoFn<String, String>.ProcessContext c) throws Exception {
-                JSONObject firstJSONObject = new JSONObject(c.element());
-                firstJSONObject.put("a", firstJSONObject.get("a").toString()+ "1000");
-                c.output(firstJSONObject.toString());
-
-            }
-
-        }).named("update json")).apply(ParDo.of(new DoFn<String, TableRow>() {
-
-            //@Override
-            public void processElement(DoFn<String, TableRow>.ProcessContext c) throws Exception {
-                JSONObject json = new JSONObject(c.element());
-                TableRow row = new TableRow().set("a", json.get("a")).set("b", json.get("b")).set("c", json.get("c"));
-                c.output(row);
-            }
-
-        }).named("convert json to table row"))
-                .apply(BigQueryIO.Write.to("my-data-analysis:mydataset.mytable").withSchema(tableSchema)
-        );
-
-        pipeline.run();
+//        input.apply(ParDo.of(new DoFn<String, String>() {
+//            //@Override
+//            public void processElement(DoFn<String, String>.ProcessContext c) throws Exception {
+//                JSONObject firstJSONObject = new JSONObject(c.element());
+//                firstJSONObject.put("a", firstJSONObject.get("a").toString()+ "1000");
+//                c.output(firstJSONObject.toString());
+//
+//            }
+//
+//       // }).named("update json")).apply(ParDo.of(new DoFn<String, TableRow>() {
+//        }).apply(ParDo.of(new DoFn<String, TableRow>() {
+//
+//            //@Override
+//            public void processElement(DoFn<String, TableRow>.ProcessContext c) throws Exception {
+//                JSONObject json = new JSONObject(c.element());
+//                TableRow row = new TableRow().set("a", json.get("a")).set("b", json.get("b")).set("c", json.get("c"));
+//                c.output(row);
+//            }
+//        }).named("convert json to table row"))
+//                .apply(BigQueryIO.Write.to("my-data-analysis:mydataset.mytable").withSchema(tableSchema)
+//        );
+//
+//        pipeline.run();
     }
 }

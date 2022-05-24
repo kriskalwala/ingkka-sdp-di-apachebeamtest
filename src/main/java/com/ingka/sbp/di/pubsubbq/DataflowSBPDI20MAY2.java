@@ -58,15 +58,20 @@ public class DataflowSBPDI20MAY2 {
 		
 		
 		PCollection<TableRow> bqrow =  pubsubmessage.apply( ParDo.of(new ConvertStringBqA()) );
+		
 		bqrow.apply(BigQueryIO.writeTableRows().to("cpskk2021-03-1615568275864:smalltech.pubsubStream20").withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
 				.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER));
+		
+		
+		
+		
 				//.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER).withCustomGcsTempLocation(options.getString()));    IT WORKED !!!
 	
 	//	PCollection<String>  pubsubmessage2 = pipeline.apply(PubsubIO.readStrings().fromTopic("projects/cpskk2021-03-1615568275864/topics/pubsubbqmay2022")); 
 		
-		PCollection<TableRow> bqrow2 =  pubsubmessage.apply( ParDo.of(new ConvertStringBqB()) );
+	/*	PCollection<TableRow> bqrow2 =  pubsubmessage.apply( ParDo.of(new ConvertStringBqB()) );
 		bqrow.apply(BigQueryIO.writeTableRows().to("cpskk2021-03-1615568275864:smalltech.pubsubStream20B").withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
-				.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER));
+				.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)); */
 		
 		
 		pipeline.run();
