@@ -424,11 +424,11 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		        boolean isSale = false;
 		        
 		        
-		        Article a = Article.builder()
+		      /*  Article a = Article.builder()
 		        		  .id(1L)
 		        		  .title("Test Article")
 		        		  .tags(Collections.singletonList("Demo"))
-		        		  .build();
+		        		  .build(); */
 		        
 		        
 		       
@@ -449,9 +449,9 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		                        isTransaction = true;
 		                    	
 		                    	transactionBuilder = Transaction.builder();
-		                    	transactionBuilderFIN = TransactionFIN.builder();
+		                    //	transactionBuilderFIN = TransactionFIN.builder();
 		                    	
-		                    	TransactionFIN trans = TransactionFIN.builder();
+		                    //	TransactionFIN trans = TransactionFIN.builder();
 		                    	
 		        		    //po co dwa razy    transactionFINBuilder = TransactionFIN.builder();
 		                        TransactionINGKA transaction_ingka = new TransactionINGKA();
@@ -504,9 +504,9 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		                        isTransaction = false;
 		                        Instant now = Instant.now();
 		                        LocalDateTime utcDateTime = LocalDateTime.ofInstant(now, ZoneId.of("UTC"));
-		                        Transaction transaction = transactionBuilder.now(utcDateTime)
-		                                .build();
-		                        transactionsList.add(transaction);
+		                     //   Transaction transaction = transactionBuilder.now(utcDateTime)
+		                     //           .build();
+		                     //   transactionsList.add(transaction);
 		                        transactionBuilder = null;
 		                        break;
 

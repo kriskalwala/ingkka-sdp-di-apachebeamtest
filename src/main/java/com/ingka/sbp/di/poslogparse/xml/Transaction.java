@@ -1,6 +1,7 @@
 package com.ingka.sbp.di.poslogparse.xml;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.xml.crypto.dsig.XMLObject;
 
@@ -93,7 +94,7 @@ public class Transaction implements Serializable {
 			
 		}
 
-		public Object now(String stringNow) {
+		public Object now(LocalDateTime utcDateTime) {
 			// TODO Auto-generated method stub
 			return null;
 		}
