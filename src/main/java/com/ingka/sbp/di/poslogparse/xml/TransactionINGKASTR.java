@@ -5,6 +5,16 @@ import java.util.Date;
 
 import org.joda.time.DateTime;
 
+import lombok.Builder;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Data
+@Builder
+
 public class TransactionINGKASTR {
 	
 	/*Field name

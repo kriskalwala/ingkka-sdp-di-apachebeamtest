@@ -1,8 +1,10 @@
 package com.ingka.sbp.di.poslogparse.xml;
 
+import java.io.Serializable;
+
 import javax.xml.crypto.dsig.XMLObject;
 
-public class Transaction {
+public class Transaction implements Serializable {
 	
 	
 	String message;
