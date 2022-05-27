@@ -7,8 +7,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Data
-@Builder
+//@Data
+//@Builder
 public class TransactionFIN implements Serializable {
    
 	private String retailStoreID;

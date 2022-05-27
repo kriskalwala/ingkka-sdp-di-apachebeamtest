@@ -1,4 +1,8 @@
 org/apache/beam/examples/complete/game/injector/Injector$1.class
+com/ingka/sbp/di/poslogparse/xml/Tender$TenderBuilder.class
+com/ingka/sbp/di/poslogparse/xml/Article$ArticleBuilder.class
+com/ingka/sbp/di/poslogparse/xml/Sale$SaleBuilder.class
+com/ingka/sbp/di/poslogparse/xml/Tax$TaxBuilder.class
 org/apache/beam/examples/common/ExampleOptions.class
 org/apache/beam/examples/common/ExamplePubsubTopicAndSubscriptionOptions.class
 org/apache/beam/examples/complete/game/StatefulTeamScore$Options.class
