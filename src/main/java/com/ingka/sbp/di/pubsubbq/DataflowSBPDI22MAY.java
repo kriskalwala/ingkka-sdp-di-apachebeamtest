@@ -390,7 +390,7 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		        ArrayList<LineItem> lineItemList = new ArrayList<>();
 		        Transaction.TransactionBuilder transactionBuilder = null;
 		        LineItem.LineItemBuilder lineItemBuilder = null;
-		        RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
+		        //RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
 		        LocalDateTime parsedBeginDateTime = null;
 		        String retailStoreId = null;
 		        String currencyCode = null;

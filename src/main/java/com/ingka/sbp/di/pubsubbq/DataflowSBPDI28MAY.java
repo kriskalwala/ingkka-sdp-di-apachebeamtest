@@ -474,7 +474,7 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		        TransactionFIN.TransactionFINBuilder transactionBuilderFIN = null;
 		        
 		        LineItem.LineItemBuilder lineItemBuilder = null;
-		        RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
+		        //RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
 		        
 		        ArrayList<Sale> salesList = new ArrayList<>();
 		        ArrayList<Tax> taxesList = new ArrayList<>();

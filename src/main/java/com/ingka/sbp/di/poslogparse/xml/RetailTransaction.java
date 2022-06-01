@@ -1,21 +1,26 @@
 package com.ingka.sbp.di.poslogparse.xml;
 
 import java.util.ArrayList;
+import java.util.List;
+
+//import com.ikea.sbp.di.xml.LineItem;
 
 public class RetailTransaction {
 
-	public class RetailTransactionBuilder {
+	/*public class RetailTransactionBuilder {
 
 		public Object lineItemList(ArrayList<LineItem> lineItemList) {
-			// TODO Auto-generated method stub
+			
 			return null;
 		}
 
 	}
 
 	public static RetailTransactionBuilder builder() {
-		// TODO Auto-generated method stub
+		
 		return null;
-	}
+	}*/
+	
+	 private List<LineItemGOOD> lineItemList;
 
 }
