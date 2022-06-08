@@ -63,8 +63,14 @@ public class TransactionGOOD {
     String OFLN_FLG;
     LocalDateTime ETL_INS_DTM;
     //DateTime ETL_INS_DTM;
-    private RetailTransaction retailTransaction;
+    private RetailTransactionORG retailTransaction;
     
+	public RetailTransactionORG getRetailTransaction() {
+		return retailTransaction;
+	}
+	public void setRetailTransaction(RetailTransactionORG retailTransaction) {
+		this.retailTransaction = retailTransaction;
+	}
 	public LocalDate getBUS_DAY() {
 		return BUS_DAY;
 	}

@@ -22,8 +22,8 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
 import com.google.common.io.ByteSource;
-import com.ingka.sbp.di.poslogparse.xml.LineItem;
-import com.ingka.sbp.di.poslogparse.xml.RetailTransaction;
+import com.ingka.sbp.di.poslogparse.xml.LineItem1;
+import com.ingka.sbp.di.poslogparse.xml.RetailTransactionORG;
 import com.ingka.sbp.di.poslogparse.xml.Transaction;
 
 public class StaxParserTest {
@@ -358,10 +358,10 @@ public class StaxParserTest {
 	        
 	        
 	        ArrayList<Transaction> transactionsList = new ArrayList<>();
-	        ArrayList<LineItem> lineItemList = new ArrayList<>();
+	        ArrayList<LineItem1> lineItemList = new ArrayList<>();
 	        Transaction.TransactionBuilder transactionBuilder = null;
-	        LineItem.LineItemBuilder lineItemBuilder = null;
-	        RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
+	        LineItem1.LineItemBuilder lineItemBuilder = null;
+	       // RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
 	        LocalDateTime parsedBeginDateTime = null;
 	        String retailStoreId = null;
 	        String currencyCode = null;
@@ -464,7 +464,7 @@ public class StaxParserTest {
 
 	                    case "LineItem":
 	                        isLineItem = false;
-	                        LineItem lineItem = lineItemBuilder.build();
+	                        LineItem1 lineItem = lineItemBuilder.build();
 	                        lineItemList.add(lineItem);
 	                        break;
 

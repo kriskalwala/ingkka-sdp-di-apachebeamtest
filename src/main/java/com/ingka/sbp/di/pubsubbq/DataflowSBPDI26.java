@@ -15,9 +15,9 @@ import org.apache.beam.sdk.values.PCollection;
 import com.google.api.services.bigquery.model.Table;
 import com.google.api.services.bigquery.model.TableRow;
 import com.google.common.io.ByteSource;
-import com.ingka.sbp.di.poslogparse.xml.Sale;
-import com.ingka.sbp.di.poslogparse.xml.Tax;
-import com.ingka.sbp.di.poslogparse.xml.Tender;
+import com.ingka.sbp.di.poslogparse.xml.Sale1;
+import com.ingka.sbp.di.poslogparse.xml.Tax1;
+import com.ingka.sbp.di.poslogparse.xml.Tender1;
 
 import static javax.xml.stream.XMLInputFactory.newInstance;
 
@@ -48,8 +48,8 @@ import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 
 import com.ingka.sbp.di.poslogparse.xml.Article;
-import com.ingka.sbp.di.poslogparse.xml.LineItem;
-import com.ingka.sbp.di.poslogparse.xml.RetailTransaction;
+import com.ingka.sbp.di.poslogparse.xml.LineItem1;
+import com.ingka.sbp.di.poslogparse.xml.RetailTransactionORG;
 import com.ingka.sbp.di.poslogparse.xml.Transaction;
 import com.ingka.sbp.di.poslogparse.xml.TransactionFIN;
 import com.ingka.sbp.di.poslogparse.xml.TransactionFIN.TransactionFINBuilder;
@@ -397,16 +397,16 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		        ArrayList<TransactionINGKA> transactionsList_ingka = new ArrayList<>();
 		        ArrayList<TransactionINGKASTR> transactionsList_ingka_str = new ArrayList<>();
 		        
-		        ArrayList<LineItem> lineItemList = new ArrayList<>();
+		        ArrayList<LineItem1> lineItemList = new ArrayList<>();
 		        Transaction.TransactionBuilder transactionBuilder = null;
 		        
 		        TransactionFIN.TransactionFINBuilder transactionBuilderFIN = null;
 		        
-		        LineItem.LineItemBuilder lineItemBuilder = null;
+		        LineItem1.LineItemBuilder lineItemBuilder = null;
 		        //RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
 		        
-		        ArrayList<Sale> salesList = new ArrayList<>();
-		        ArrayList<Tax> taxesList = new ArrayList<>();
+		        ArrayList<Sale1> salesList = new ArrayList<>();
+		        ArrayList<Tax1> taxesList = new ArrayList<>();
 		        
 		   //zaraz     Tender.TenderBuilder tenderBuilder = null;
 		   //zaraz     Sale.SaleBuilder saleBuilder = null;

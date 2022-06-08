@@ -22,7 +22,7 @@ public class TransactionFIN implements Serializable {
     private String transactionStatus;
     private String tillId;
     private LocalDateTime now;
-    private RetailTransaction retailTransaction;
+    private RetailTransactionORG retailTransaction;
     
     public class TransactionFINBuilder {
     	private String retailStoreID;
@@ -36,7 +36,7 @@ public class TransactionFIN implements Serializable {
         private String transactionStatus;
         private String tillId;
         private LocalDateTime now;
-        private RetailTransaction retailTransaction;
+        private RetailTransactionORG retailTransaction;
         
         public TransactionFINBuilder retailStoreID(String retailStoreID) {
             this.retailStoreID = retailStoreID;

@@ -40,8 +40,8 @@ import org.apache.beam.runners.dataflow.DataflowRunner;
 import org.apache.beam.runners.dataflow.options.DataflowPipelineOptions;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 
-import com.ingka.sbp.di.poslogparse.xml.LineItem;
-import com.ingka.sbp.di.poslogparse.xml.RetailTransaction;
+import com.ingka.sbp.di.poslogparse.xml.LineItem1;
+import com.ingka.sbp.di.poslogparse.xml.RetailTransactionORG;
 import com.ingka.sbp.di.poslogparse.xml.Transaction;
 import com.ingka.sbp.di.poslogparse.xml.TransactionINGKA;
 import com.ingka.sbp.di.poslogparse.xml.TransactionINGKASTR;
@@ -387,9 +387,9 @@ public static class ConvertStringBqB extends DoFn<String, TableRow> {
 		        ArrayList<TransactionINGKA> transactionsList_ingka = new ArrayList<>();
 		        ArrayList<TransactionINGKASTR> transactionsList_ingka_str = new ArrayList<>();
 		        
-		        ArrayList<LineItem> lineItemList = new ArrayList<>();
+		        ArrayList<LineItem1> lineItemList = new ArrayList<>();
 		        Transaction.TransactionBuilder transactionBuilder = null;
-		        LineItem.LineItemBuilder lineItemBuilder = null;
+		        LineItem1.LineItemBuilder lineItemBuilder = null;
 		        //RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
 		        LocalDateTime parsedBeginDateTime = null;
 		        String retailStoreId = null;

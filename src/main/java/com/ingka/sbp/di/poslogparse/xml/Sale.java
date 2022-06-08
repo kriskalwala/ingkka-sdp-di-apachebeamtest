@@ -9,13 +9,14 @@ import java.io.Serializable;
 @Builder
 public class Sale implements Serializable {
     private String itemId;
-    private String quantity;
-    private String unitListPrice;
-    private String regularSalesUnitPrice;
-    private String actualSalesUnitPrice;
-    private String extendedAmount;
-    private String discountAmount;
-    private String extendedDiscountAmount;
+    private Double quantity;
+    private Double unitListPrice;
+    private Double regularSalesUnitPrice;
+    private Double actualSalesUnitPrice;
+    private Double extendedAmount;
+    private Double discountAmount;
+    private Double extendedDiscountAmount;
     private String cancelledPrepayment;
     private String returnIDNumber;
+    private String transactionType;
 }

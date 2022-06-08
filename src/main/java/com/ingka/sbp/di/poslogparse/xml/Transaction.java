@@ -89,7 +89,7 @@ public class Transaction implements Serializable {
 			
 		}
 
-		public void retailTransaction(RetailTransaction retailTransaction) {
+		public void retailTransaction(RetailTransactionORG retailTransaction) {
 			// TODO Auto-generated method stub
 			
 		}

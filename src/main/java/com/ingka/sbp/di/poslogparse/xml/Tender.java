@@ -10,8 +10,8 @@ import java.io.Serializable;
 public class Tender implements Serializable {
     private String type;
     private String typeCode;
-    private String amount;
-    private String quantity;
+    private Double amount;
+    private Double quantity;
     private String externalType;
     private String cardType;
     private String issuerIdentificationNumber;

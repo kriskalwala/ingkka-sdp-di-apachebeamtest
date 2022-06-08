@@ -1,29 +1,18 @@
 package com.ingka.sbp.di.poslogparse.xml;
 
-public class LineItem {
+import lombok.Builder;
+import lombok.Data;
 
-	public class LineItemBuilder {
+import java.io.Serializable;
+import java.util.List;
 
-		public void sequenceNumber(String sequenceNumber) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void voidFlag(String value) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public LineItem build() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-	}
-
-	public static LineItemBuilder builder() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+@Data
+@Builder
+public class LineItem implements Serializable {
+    private Integer sequenceNumber;
+    private String voidFlag;
+    private String entryMethod;
+    private Tender tender;
+    private List<Sale> saleList;
+    private List<Tax> taxList;
 }

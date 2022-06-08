@@ -1,9 +1,9 @@
 package com.ingka.sbp.di.pubsubbq;
 
 import com.google.common.io.ByteSource;
-import com.ingka.sbp.di.poslogparse.xml.LineItem;
+import com.ingka.sbp.di.poslogparse.xml.LineItem1;
 import com.ingka.sbp.di.poslogparse.xml.PayLoadd;
-import com.ingka.sbp.di.poslogparse.xml.RetailTransaction;
+import com.ingka.sbp.di.poslogparse.xml.RetailTransactionORG;
 import com.ingka.sbp.di.poslogparse.xml.Transaction;
 import com.ingka.sbp.di.poslogparse.xml.XMLParser;
 
@@ -35,10 +35,10 @@ public class StaxParser implements XMLParser {
         XMLEventReader reader = buildXMLEventReader(xmlContent);
 
         ArrayList<Transaction> transactionsList = new ArrayList<>();
-        ArrayList<LineItem> lineItemList = new ArrayList<>();
+        ArrayList<LineItem1> lineItemList = new ArrayList<>();
         Transaction.TransactionBuilder transactionBuilder = null;
-        LineItem.LineItemBuilder lineItemBuilder = null;
-        RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
+        LineItem1.LineItemBuilder lineItemBuilder = null;
+        //RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
         LocalDateTime parsedBeginDateTime = null;
         String retailStoreId = null;
         String currencyCode = null;
@@ -104,7 +104,7 @@ public class StaxParser implements XMLParser {
                         break;
 
                     case "RetailTransaction":
-                        retailTransactionBuilder = RetailTransaction.builder();
+                        //retailTransactionBuilder = RetailTransaction.builder();
                         Attribute transactionStatusAttribute = startElement.getAttributeByName(new QName("TransactionStatus"));
                         if (transactionStatusAttribute != null) {
                             transactionBuilder.transactionStatus(transactionStatusAttribute.getValue());
@@ -113,7 +113,7 @@ public class StaxParser implements XMLParser {
 
                     case "LineItem":
                         isLineItem = true;
-                        lineItemBuilder = LineItem.builder();
+                        lineItemBuilder = LineItem1.builder();
                         Attribute voidFlagAttribute = startElement.getAttributeByName(new QName("VoidFlag"));
                         if (voidFlagAttribute != null) {
                             lineItemBuilder.voidFlag(voidFlagAttribute.getValue());
@@ -145,7 +145,7 @@ public class StaxParser implements XMLParser {
 
                     case "LineItem":
                         isLineItem = false;
-                        LineItem lineItem = lineItemBuilder.build();
+                        LineItem1 lineItem = lineItemBuilder.build();
                         lineItemList.add(lineItem);
                         break;
 

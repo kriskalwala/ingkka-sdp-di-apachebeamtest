@@ -358,8 +358,8 @@ public class DataflowSBPDI29MAYMAC {
 	                  .set("STO_NUM", parsed_list.get(i).getSTO_NO())
 	                  .set("WS_ID", parsed_list.get(i).getWS_ID())
 	                  .set("TRA_SEQ_NO", parsed_list.get(i).getTRA_SEQ_NO())
-	                  .set("TRA_STA_DTM", (parsed_list.get(i).getTRA_STA_DTM()).format(DateTimeFormatter.ISO_DATE_TIME).toString())
-	                  .set("TRA_LINE_SEQ_NO", )
+	                  .set("TRA_STA_DTM", (parsed_list.get(i).getTRA_STA_DTM()).format(DateTimeFormatter.ISO_DATE_TIME).toString());
+	              //3JUN    .set("TRA_LINE_SEQ_NO", )
 	                  
 	                 //OUT .set("TILL_TYPE", parsed_list.get(i).getTILL_TYPE())
 	                 //OUT  .set("CURCY_CODE", parsed_list.get(i).getCURCY_CODE())
@@ -369,25 +369,25 @@ public class DataflowSBPDI29MAYMAC {
 	                //OUT .set("ETL_INS_DTM", parsed_list.get(i).getETL_INS_DTM().toString());
 	                  //------------
 	                  
-	                  .set("BUS_DAY", transaction.getBusinessDayDate().format(DateTimeFormatter.ISO_LOCAL_DATE))
+	                 /* .set("BUS_DAY", transaction.getBusinessDayDate().format(DateTimeFormatter.ISO_LOCAL_DATE))
                       .set("STO_NO", transaction.getRetailStoreID())
 		              .set("WS_ID", transaction.getWorkstationID())
 		              .set("TRA_SEQ_NO", transaction.getSequenceNumber())
 		              .set("TRA_STA_DTM", transaction.getBeginDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME))
-		              
+		              */
 		              //IN.set("TRA_LINE_SEQ_NO", lineItem.getSequenceNumber())
-		              .set("TRA_TYPE", sale.getTransactionType())
-		              .set("ITEM_NO", sale.getItemId())
-		                .set("UNIT_ITEM_PRIC", sale.getUnitListPrice())
-		                .set("REG_ITEM_PRIC", sale.getRegularSalesUnitPrice())
-		                .set("ACT_ITEM_PRIC", sale.getActualSalesUnitPrice())
-		                .set("SALE_VAL", sale.getExtendedAmount())
-		                .set("DISC_AMT", sale.getDiscountAmount() != null ? sale.getDiscountAmount() : 0)
-		                .set("TOT_DISC_VAL", sale.getExtendedDiscountAmount() != null ? sale.getExtendedDiscountAmount() : 0)
-		                .set("ITEM_QTY", sale.getQuantity())
-		                .set("CANC_PREPAY_FLG", sale.getCancelledPrepayment())
-		                .set("VOID_FLG", lineItem.getVoidFlag())
-		                .set("ETL_INS_DTM", transaction.getNow().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+						/*
+						 * .set("TRA_TYPE", sale.getTransactionType()) .set("ITEM_NO", sale.getItemId())
+						 * .set("UNIT_ITEM_PRIC", sale.getUnitListPrice()) .set("REG_ITEM_PRIC",
+						 * sale.getRegularSalesUnitPrice()) .set("ACT_ITEM_PRIC",
+						 * sale.getActualSalesUnitPrice()) .set("SALE_VAL", sale.getExtendedAmount())
+						 * .set("DISC_AMT", sale.getDiscountAmount() != null ? sale.getDiscountAmount()
+						 * : 0) .set("TOT_DISC_VAL", sale.getExtendedDiscountAmount() != null ?
+						 * sale.getExtendedDiscountAmount() : 0) .set("ITEM_QTY", sale.getQuantity())
+						 * .set("CANC_PREPAY_FLG", sale.getCancelledPrepayment()) .set("VOID_FLG",
+						 * lineItem.getVoidFlag()) .set("ETL_INS_DTM",
+						 * transaction.getNow().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+						 */
 
 	            processContext.output(tableRow);
 
@@ -399,8 +399,8 @@ public class DataflowSBPDI29MAYMAC {
 
    public static Quartet<ArrayList<TransactionGOOD>, 
 						 ArrayList<LineItemGOOD>, 
-                         ArrayList<Tax>, 
-                         ArrayList<Tender>> parsePubsubMessagePOSLOG(String element) throws XMLStreamException, IOException {
+                         ArrayList<Tax1>, 
+                         ArrayList<Tender1>> parsePubsubMessagePOSLOG(String element) throws XMLStreamException, IOException {
 	   
 	    XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
 	 
@@ -431,7 +431,7 @@ public class DataflowSBPDI29MAYMAC {
 	
 	     
 	
-	     ArrayList<LineItem> lineItemList = new ArrayList<>();
+	     ArrayList<LineItem1> lineItemList = new ArrayList<>();
 	     Transaction.TransactionBuilder transactionBuilder = null;
 	
 	     TransactionGOOD tg = null;
@@ -439,12 +439,12 @@ public class DataflowSBPDI29MAYMAC {
 	
 	     TransactionFINBuilder transactionBuilderFIN = null;
 	     
-	     LineItem.LineItemBuilder lineItemBuilder = null;
+	     LineItem1.LineItemBuilder lineItemBuilder = null;
 	     //VAL RetailTransaction.RetailTransactionBuilder retailTransactionBuilder = null;
-	     RetailTransaction rt = new RetailTransaction();
+	     RetailTransactionORG rt = new RetailTransactionORG();
 	     
-	     ArrayList<Sale> salesList = new ArrayList<>();
-	     ArrayList<Tax> taxesList = new ArrayList<>();
+	     ArrayList<Sale1> salesList = new ArrayList<>();
+	     ArrayList<Tax1> taxesList = new ArrayList<>();
 	     
 	//zaraz     Tender.TenderBuilder tenderBuilder = null;
 	//zaraz     Sale.SaleBuilder saleBuilder = null;

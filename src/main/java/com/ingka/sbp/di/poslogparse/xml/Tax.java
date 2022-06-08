@@ -9,9 +9,9 @@ import java.io.Serializable;
 @Builder
 public class Tax implements Serializable {
     private String type;
-    private String sequenceNumber;
-    private String taxableAmount;
+    private Integer sequenceNumber;
+    private Double taxableAmount;
     private String taxIncludedInTaxableAmountFlag;
-    private String amount;
-    private String percent;
+    private Double amount;
+    private Double percent;
 }

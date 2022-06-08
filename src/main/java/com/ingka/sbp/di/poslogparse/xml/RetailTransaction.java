@@ -1,26 +1,13 @@
 package com.ingka.sbp.di.poslogparse.xml;
 
-import java.util.ArrayList;
+import lombok.Builder;
+import lombok.Data;
+
+import java.io.Serializable;
 import java.util.List;
 
-//import com.ikea.sbp.di.xml.LineItem;
-
-public class RetailTransaction {
-
-	/*public class RetailTransactionBuilder {
-
-		public Object lineItemList(ArrayList<LineItem> lineItemList) {
-			
-			return null;
-		}
-
-	}
-
-	public static RetailTransactionBuilder builder() {
-		
-		return null;
-	}*/
-	
-	 private List<LineItemGOOD> lineItemList;
-
+@Data
+@Builder
+public class RetailTransaction implements Serializable {
+    private List<LineItem> lineItemList;
 }
