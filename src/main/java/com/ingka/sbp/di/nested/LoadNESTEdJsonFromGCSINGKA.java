@@ -53,6 +53,40 @@ public class LoadNESTEdJsonFromGCSINGKA {
 				             Field.of("version", StandardSQLTypeName.NUMERIC))
 					 .setMode(Mode.REPEATED).build();		
   
+  private static final Field F_lineItem = Field.newBuilder( "lineItem",
+	         StandardSQLTypeName.STRUCT,
+					         Field.of("sequenceNumber", StandardSQLTypeName.STRING),
+				             Field.of("beginDateTime", StandardSQLTypeName.STRING),
+				             Field.of("operatorBypassApproval", StandardSQLTypeName.STRING),
+				             Field.of("sale", StandardSQLTypeName.STRING),
+				             Field.of("saleForPickup", StandardSQLTypeName.STRING),
+				             Field.of("customerOrderForDelivery", StandardSQLTypeName.STRING),
+				             Field.of("discount", StandardSQLTypeName.NUMERIC),
+				             Field.of("loyaltyReward", StandardSQLTypeName.STRING),
+				             Field.of("giftCertificate", StandardSQLTypeName.STRING),
+				             Field.of("tax", StandardSQLTypeName.STRING),
+				             Field.of("tender", StandardSQLTypeName.STRING),
+				             Field.of("pagedInvoice", StandardSQLTypeName.STRING),
+				             Field.of("entryMethod", StandardSQLTypeName.STRING),
+				             Field.of("voidFlag", StandardSQLTypeName.STRING),
+				             Field.of("statisticFlag", StandardSQLTypeName.STRING),
+				             Field.of("return", StandardSQLTypeName.STRING))
+					 .setMode(Mode.REPEATED).build();
+  
+  
+  
+  private static final Field F_retailTransaction11 = Field.newBuilder( "retailTransaction",
+	         StandardSQLTypeName.STRUCT,
+	                         F_lineItem,
+					         Field.of("loyaltyAccount", StandardSQLTypeName.STRING),
+				             Field.of("transactionLink", StandardSQLTypeName.STRING),
+				             Field.of("operatorBypassApproval", StandardSQLTypeName.STRING),
+				             Field.of("coupon", StandardSQLTypeName.STRING),
+				             Field.of("transactionSpecifics", StandardSQLTypeName.STRING),
+				             Field.of("transactionStatus", StandardSQLTypeName.STRING),
+				             Field.of("version", StandardSQLTypeName.NUMERIC))
+					 .setMode(Mode.REPEATED).build();
+  
 
 public static void runLoadJsonFromGCS() {
     // TODO(developer): Replace these variables before running the sample.
@@ -64,6 +98,7 @@ public static void runLoadJsonFromGCS() {
    // String sourceUri = "gs://bucket-20apr/adr.json";
    // String sourceUri = "gs://bucket-20apr/adr_nest_nest.json";
    // String sourceUri = "gs://bucket-20apr/VALjson1line.json";
+    //13th JUNE update
     String sourceUri = "gs://bucket-20apr/partlyJSONline.json";
     
     /*Schema schema =
@@ -208,7 +243,7 @@ public static void runLoadJsonFromGCS() {
             //   {"transaction":[{"retailStoreID":"985","organizationHierarchy":[{"value":"IKEASetCountryCode2PT","id":"PT","level":"Corporation"}],"workstationID":10,"tillID":"RETURN","sequenceNumber":10,"businessDayDate":1654034400000,"beginDateTime":1654073055000,"endDateTime":1654073073000,"operatorID":{"value":16162,"operatorName":"Agneta Cashier","operatorType":"IKEA-SAP:HFB"},"currencyCode":"EUR","controlTransaction":"null","tenderControlTransaction":"null","retailTransaction":[{"loyaltyAccount":"null","transactionLink":"null","operatorBypassApproval":"x","coupon":"x","transactionSpecifics":"null","transactionStatus":"null","version":2.2}]}],"poslogSpecifics":"null"}
 
             
-            //8        
+            //8 , 9 , update 13th JUNE        
             Schema schemaIngkaJSON11 =
                     Schema.of(
                         Field.newBuilder(
@@ -226,13 +261,14 @@ public static void runLoadJsonFromGCS() {
                                 Field.of("currencyCode", StandardSQLTypeName.STRING),
                                 Field.of("controlTransaction", StandardSQLTypeName.STRING),
                                 Field.of("tenderControlTransaction", StandardSQLTypeName.STRING),
-                                F_retailTransaction)
+                                F_retailTransaction11)
                             .setMode(Mode.REPEATED)
                             .build(),
                          Field.of("poslogSpecifics", StandardSQLTypeName.STRING));
     
     
-    loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON10);  //switch schemas
+   //9th JUNE loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON10);  //switch schemas
+    loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON11);  //switch schemas
   }
 
   public static void loadJsonFromGCS(
