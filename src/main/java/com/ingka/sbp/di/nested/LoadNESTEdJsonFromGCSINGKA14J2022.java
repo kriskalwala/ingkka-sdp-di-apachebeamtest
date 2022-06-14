@@ -14,7 +14,7 @@ import com.google.cloud.bigquery.TableId;
 import com.google.cloud.bigquery.Field.Mode;
 
 // Sample to load JSON data from Cloud Storage into a new BigQuery table
-public class LoadNESTEdJsonFromGCSINGKA {
+public class LoadNESTEdJsonFromGCSINGKA14J2022 {
 
   private static final Field F_addresses2 = Field.newBuilder( "addresses2",
                                 StandardSQLTypeName.STRUCT,
@@ -86,6 +86,34 @@ public class LoadNESTEdJsonFromGCSINGKA {
 				             Field.of("transactionStatus", StandardSQLTypeName.STRING),
 				             Field.of("version", StandardSQLTypeName.NUMERIC))
 					 .setMode(Mode.REPEATED).build();
+ 
+  
+  
+  //14th JUNE
+  private static final Field F_transaction = Field.newBuilder(
+          "transaction",
+          StandardSQLTypeName.STRUCT,
+          Field.of("retailStoreID", StandardSQLTypeName.STRING), 
+          F_organizationHierarchy,
+          Field.of("workstationID", StandardSQLTypeName.NUMERIC), //n
+          Field.of("tillID", StandardSQLTypeName.STRING),
+          Field.of("sequenceNumber", StandardSQLTypeName.NUMERIC), //n
+          Field.of("businessDayDate", StandardSQLTypeName.NUMERIC), //n 
+          Field.of("beginDateTime", StandardSQLTypeName.NUMERIC), //n
+          Field.of("endDateTime", StandardSQLTypeName.NUMERIC), //n
+          F_operatorID,
+          Field.of("currencyCode", StandardSQLTypeName.STRING),
+          Field.of("controlTransaction", StandardSQLTypeName.STRING),
+          Field.of("tenderControlTransaction", StandardSQLTypeName.STRING),
+          F_retailTransaction11).setMode(Mode.REPEATED)
+      .build();
+  
+  
+  private static final Field F_entity = Field.newBuilder( "entity",
+	         StandardSQLTypeName.STRUCT,
+	                         F_transaction,
+					         Field.of("poslogSpecifics", StandardSQLTypeName.STRING))
+					 .setMode(Mode.REPEATED).build();
   
 
 public static void runLoadJsonFromGCS() {
@@ -93,7 +121,7 @@ public static void runLoadJsonFromGCS() {
    // String datasetName = "MY_DATASET_NAME";
    // String tableName = "MY_TABLE_NAME";
     String datasetName = "smalltech";
-    String tableName = "json4nestnestF1partly7";
+    String tableName = "json4nestnestF1partly13C";
    // String sourceUri = "gs://cloud-samples-data/bigquery/us-states/us-states.json";
    // String sourceUri = "gs://bucket-20apr/adr.json";
    // String sourceUri = "gs://bucket-20apr/adr_nest_nest.json";
@@ -243,7 +271,7 @@ public static void runLoadJsonFromGCS() {
             //   {"transaction":[{"retailStoreID":"985","organizationHierarchy":[{"value":"IKEASetCountryCode2PT","id":"PT","level":"Corporation"}],"workstationID":10,"tillID":"RETURN","sequenceNumber":10,"businessDayDate":1654034400000,"beginDateTime":1654073055000,"endDateTime":1654073073000,"operatorID":{"value":16162,"operatorName":"Agneta Cashier","operatorType":"IKEA-SAP:HFB"},"currencyCode":"EUR","controlTransaction":"null","tenderControlTransaction":"null","retailTransaction":[{"loyaltyAccount":"null","transactionLink":"null","operatorBypassApproval":"x","coupon":"x","transactionSpecifics":"null","transactionStatus":"null","version":2.2}]}],"poslogSpecifics":"null"}
 
             
-            //8 , 9 , update 13th JUNE        
+            //8 , 9 , update 13th JUNE ---> 14th JUNE       
             Schema schemaIngkaJSON11 =
                     Schema.of(
                         Field.newBuilder(
@@ -265,10 +293,39 @@ public static void runLoadJsonFromGCS() {
                             .setMode(Mode.REPEATED)
                             .build(),
                          Field.of("poslogSpecifics", StandardSQLTypeName.STRING));
+            //working set with 1 lineItem
+            // {"transaction":[{"retailStoreID":"985","organizationHierarchy":[{"value":"IKEASetCountryCode2PT","id":"PT","level":"Corporation"}],"workstationID":10,"tillID":"RETURN","sequenceNumber":10,"businessDayDate":1654034400000,"beginDateTime":1654073055000,"endDateTime":1654073073000,"operatorID":{"value":16162,"operatorName":"Agneta Cashier","operatorType":"IKEA-SAP:HFB"},"currencyCode":"EUR","controlTransaction":"null","tenderControlTransaction":"null","retailTransaction":[{"lineItem":[{"sequenceNumber":4,"beginDateTime":null,"operatorBypassApproval":[],"sale":"SALE","saleForPickup":null,"customerOrderForDelivery":null,"discount":null,"loyaltyReward":null,"giftCertificate":null,"tax":null,"tender":null,"pagedInvoice":null,"entryMethod":"Keyed","voidFlag":null,"statisticFlag":null,"return":null}],"loyaltyAccount":"null","transactionLink":"null","operatorBypassApproval":"x","coupon":"x","transactionSpecifics":"null","transactionStatus":"null","version":2.2}]}],"poslogSpecifics":"null"}
     
+            // ws with 3 lineitems
+            // {"transaction":[{"retailStoreID":"985","organizationHierarchy":[{"value":"IKEASetCountryCode2PT","id":"PT","level":"Corporation"}],"workstationID":10,"tillID":"RETURN","sequenceNumber":10,"businessDayDate":1654034400000,"beginDateTime":1654073055000,"endDateTime":1654073073000,"operatorID":{"value":16162,"operatorName":"Agneta Cashier","operatorType":"IKEA-SAP:HFB"},"currencyCode":"EUR","controlTransaction":"null","tenderControlTransaction":"null","retailTransaction":[{"lineItem":[{"sequenceNumber":4,"beginDateTime":null,"operatorBypassApproval":"OP","sale":"SALE","saleForPickup":null,"customerOrderForDelivery":null,"discount":null,"loyaltyReward":null,"giftCertificate":null,"tax":null,"tender":null,"pagedInvoice":null,"entryMethod":"Keyed","voidFlag":null,"statisticFlag":null,"return":null},{"sequenceNumber":14,"beginDateTime":null,"operatorBypassApproval":"OP14","sale":"SALE","saleForPickup":null,"customerOrderForDelivery":null,"discount":null,"loyaltyReward":null,"giftCertificate":null,"tax":null,"tender":null,"pagedInvoice":null,"entryMethod":"Keyed","voidFlag":null,"statisticFlag":null,"return":null},{"sequenceNumber":16,"beginDateTime":null,"operatorBypassApproval":"OP14","sale":"SALE","saleForPickup":null,"customerOrderForDelivery":null,"discount":null,"loyaltyReward":null,"giftCertificate":null,"tax":null,"tender":null,"pagedInvoice":null,"entryMethod":"Keyed","voidFlag":null,"statisticFlag":null,"return":null}],"loyaltyAccount":"null","transactionLink":"null","operatorBypassApproval":"x","coupon":"x","transactionSpecifics":"null","transactionStatus":"null","version":2.2}]}],"poslogSpecifics":"null"}
+
+            
+            //this is not refekcting what we really want
+            Schema schemaIngkaJSON14 =
+                    Schema.of(
+                        Field.newBuilder(
+                                "zentity",
+                                StandardSQLTypeName.STRUCT,
+                                F_entity)
+                            .build(),
+                         Field.of("poslogSpecifics", StandardSQLTypeName.STRING));
+            
+            
+            //This is best achived for now - set of entities with transacation and poslogSpecifics
+            
+            Schema schemaIngkaJSON15 =
+                    Schema.of(
+                         F_entity                   
+                        );
+            
+            
+            
+            
+            
     
    //9th JUNE loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON10);  //switch schemas
-    loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON11);  //switch schemas
+   // loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON11);  //switch schemas
+    loadJsonFromGCS(datasetName, tableName, sourceUri, schemaIngkaJSON15);  //switch schemas
   }
 
   public static void loadJsonFromGCS(
